@@ -11,3 +11,62 @@ What is an Interface?
 * A class or struct can implement one or more interfaces.
 
  */
+
+//Creating and implementing an interface 
+namespace Interfaces_And_AbstractClasses;
+
+class Program : IExample, ISecondExample
+{
+    static void Main(string[] args)
+    {
+
+    }
+
+    public void Example()
+    {
+        System.Diagnostics.Debug.WriteLine("Hello World");
+    }
+
+    public int Example2()
+    {
+        return 1;
+    }
+
+    public string Example3(string string1, string string2)
+    {
+        return string1 + " " + string2;
+    }
+
+    public void SecondExample()
+    {
+        System.Diagnostics.Debug.WriteLine("Hello World");
+    }
+
+    public int SecondExample2()
+    {
+        return 2;
+    }
+
+    public string SecondExample3()
+    {
+        return "How are ya?";
+    }
+}
+
+interface IExample
+{
+    void Example();
+
+    int Example2();
+
+    string Example3(string string1, string string2);
+}
+
+interface ISecondExample
+{
+    void SecondExample();
+
+    int SecondExample2();
+
+    string SecondExample3();
+}
