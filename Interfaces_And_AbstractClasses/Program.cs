@@ -1,4 +1,6 @@
 ﻿
+using System.ComponentModel;
+
 namespace Interfaces_And_AbstractClasses;
 
 //Interfaces And Abstract Classes
@@ -24,61 +26,61 @@ What is an Interface?
 
 //Creating and implementing an interface 
 
-class Program : IExample, ISecondExample
-{
-    static void Main(string[] args)
-    {
+//class Program : IExample, ISecondExample
+//{
+//    static void Main(string[] args)
+//    {
 
-    }
+//    }
 
-    public void Example()
-    {
-        System.Diagnostics.Debug.WriteLine("Hello World");
-    }
+//    public void Example()
+//    {
+//        System.Diagnostics.Debug.WriteLine("Hello World");
+//    }
 
-    public int Example2()
-    {
-        return 1;
-    }
+//    public int Example2()
+//    {
+//        return 1;
+//    }
 
-    public string Example3(string string1, string string2)
-    {
-        return string1 + " " + string2;
-    }
+//    public string Example3(string string1, string string2)
+//    {
+//        return string1 + " " + string2;
+//    }
 
-    public void SecondExample()
-    {
-        System.Diagnostics.Debug.WriteLine("Hello World");
-    }
+//    public void SecondExample()
+//    {
+//        System.Diagnostics.Debug.WriteLine("Hello World");
+//    }
 
-    public int SecondExample2()
-    {
-        return 2;
-    }
+//    public int SecondExample2()
+//    {
+//        return 2;
+//    }
 
-    public string SecondExample3()
-    {
-        return "How are ya?";
-    }
-}
+//    public string SecondExample3()
+//    {
+//        return "How are ya?";
+//    }
+//}
 
-interface IExample
-{
-    void Example();
+//interface IExample
+//{
+//    void Example();
 
-    int Example2();
+//    int Example2();
 
-    string Example3(string string1, string string2);
-}
+//    string Example3(string string1, string string2);
+//}
 
-interface ISecondExample
-{
-    void SecondExample();
+//interface ISecondExample
+//{
+//    void SecondExample();
 
-    int SecondExample2();
+//    int SecondExample2();
 
-    string SecondExample3();
-}
+//    string SecondExample3();
+//}
 
 /* ----------------------------------------------------------------------------------------------------------- */
 
@@ -100,5 +102,33 @@ interface ISecondExample
 
  */
 
+
+/* ----------------------------------------------------------------------------------------------------------- */
+
+
+//INotifyPropertyChanged Interface
+
+class Program : INotifyPropertyChanged
+{
+    public event PropertyChangedEventHandler? PropertyChanged;
+
+    public string Name
+    {
+        get
+        {
+            return Name;
+        }
+        set
+        {
+            Name = value;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(Name));
+        }
+    }
+
+    public static void Main(string[] args)
+    {
+        
+    }
+}
 
 /* ----------------------------------------------------------------------------------------------------------- */
