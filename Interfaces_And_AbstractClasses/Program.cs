@@ -1,4 +1,10 @@
-﻿//Interfaces And Abstract Classes
+﻿
+namespace Interfaces_And_AbstractClasses;
+
+//Interfaces And Abstract Classes
+
+/* ----------------------------------------------------------------------------------------------------------- */
+
 
 /*
 What is an Interface?
@@ -12,8 +18,11 @@ What is an Interface?
 
  */
 
+
+/* ----------------------------------------------------------------------------------------------------------- */
+
+
 //Creating and implementing an interface 
-namespace Interfaces_And_AbstractClasses;
 
 class Program : IExample, ISecondExample
 {
@@ -70,3 +79,26 @@ interface ISecondExample
 
     string SecondExample3();
 }
+
+/* ----------------------------------------------------------------------------------------------------------- */
+
+
+// Pros and Cons of an Interface 
+
+/*
+ 
+ * Pros
+    - Decouple classes.
+    - Can reuse functionality.
+    - Workaround to multiple inheritance
+    - Can contain events, indexers, methods, and properties.
+
+ * Cons 
+    - Cannot contain fields or variables
+    - Any class that implements it must implement ALL of the interface members, 
+    or the code will not compile
+
+ */
+
+
+/* ----------------------------------------------------------------------------------------------------------- */
