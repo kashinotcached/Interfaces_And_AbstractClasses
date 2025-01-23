@@ -1,4 +1,5 @@
 ﻿
+using System.Collections;
 using System.ComponentModel;
 using System.Reflection.Metadata.Ecma335;
 
@@ -135,29 +136,63 @@ What is an Interface?
 /* ----------------------------------------------------------------------------------------------------------- */
 
 
-//IComparable Interface
+////IComparable Interface
+
+///*
+// * Interface is used to define a default sort order for objects of a specific type. 
+// * This means that classes that implement this interface can be sorted and ordered in a specific way.
+// */
+
+//class Program : IComparable
+//{
+//    public int exampleLength;
+//    Program ex1 = new Program() { exampleLength = 2 };
+
+//    static void Main(String[] args)
+//    {
+
+//    }
+
+//    public int CompareTo(object? obj)
+//    {
+//        Program ex2 = (Program)obj;
+//        var num = ex1.exampleLength == ex2.exampleLength ? 0 : (ex1.exampleLength > ex2.exampleLength ? 1 : -1);
+
+//        return num;
+//    }
+//}
+
+
+/* ----------------------------------------------------------------------------------------------------------- */
+
+// IComparer Interface 
 
 /*
- * Interface is used to define a default sort order for objects of a specific type. 
- * This means that classes that implement this interface can be sorted and ordered in a specific way.
+
+ * It is similar to IComparable Interface, If 'Compare()' function returns -
+    - 0, then 2 IDs are equal
+    - -1, then Employee1's ID > Employee2's ID
+    - 1, then Employee2's ID > Employee1's ID
+
  */
 
-class Program : IComparable
+class Program : IComparer
 {
-    public int exampleLength;
-    Program ex1 = new Program() { exampleLength = 2 };
+    class Employee
+    {
+        public int id;
+    }
 
-    static void Main(String[] args)
+    static void Main(string[] args)
     {
 
     }
 
-    public int CompareTo(object? obj)
+    public int Compare(object? x, object? y)
     {
-        Program ex2 = (Program)obj;
-        var num = ex1.exampleLength == ex2.exampleLength ? 0 : (ex1.exampleLength > ex2.exampleLength ? 1 : -1);
-
-        return num;
+        Employee employee1 = (Employee)x;
+        Employee employee2 = (Employee)y;
+        return employee1.id.CompareTo(employee2.id);
     }
 }
 
