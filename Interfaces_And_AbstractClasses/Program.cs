@@ -165,34 +165,57 @@ What is an Interface?
 
 /* ----------------------------------------------------------------------------------------------------------- */
 
-// IComparer Interface 
+//// IComparer Interface 
 
-/*
+///*
 
- * It is similar to IComparable Interface, If 'Compare()' function returns -
-    - 0, then 2 IDs are equal
-    - -1, then Employee1's ID > Employee2's ID
-    - 1, then Employee2's ID > Employee1's ID
+// * It is similar to IComparable Interface, If 'Compare()' function returns -
+//    - 0, then 2 IDs are equal
+//    - -1, then Employee1's ID > Employee2's ID
+//    - 1, then Employee2's ID > Employee1's ID
 
- */
+// */
 
-class Program : IComparer
+//class Program : IComparer
+//{
+//    class Employee
+//    {
+//        public int id;
+//    }
+
+//    static void Main(string[] args)
+//    {
+
+//    }
+
+//    public int Compare(object? x, object? y)
+//    {
+//        Employee employee1 = (Employee)x;
+//        Employee employee2 = (Employee)y;
+//        return employee1.id.CompareTo(employee2.id);
+//    }
+//}
+
+
+/* ----------------------------------------------------------------------------------------------------------- */
+
+//IEquatable Interface
+
+class Program : IEquatable<Program>
 {
-    class Employee
-    {
-        public int id;
-    }
+    public string exampleData;
 
     static void Main(string[] args)
     {
 
     }
 
-    public int Compare(object? x, object? y)
+    public bool Equals(Program? other)
     {
-        Employee employee1 = (Employee)x;
-        Employee employee2 = (Employee)y;
-        return employee1.id.CompareTo(employee2.id);
+        if(other == null)
+            return false;
+
+        return Equals(exampleData.GetHashCode(), other.exampleData.GetHashCode());
     }
 }
 
