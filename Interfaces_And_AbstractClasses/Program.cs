@@ -1,5 +1,6 @@
 ﻿
 using System.ComponentModel;
+using System.Reflection.Metadata.Ecma335;
 
 namespace Interfaces_And_AbstractClasses;
 
@@ -106,29 +107,59 @@ What is an Interface?
 /* ----------------------------------------------------------------------------------------------------------- */
 
 
-//INotifyPropertyChanged Interface
+////INotifyPropertyChanged Interface
 
-class Program : INotifyPropertyChanged
+//class Program : INotifyPropertyChanged
+//{
+//    public event PropertyChangedEventHandler? PropertyChanged;
+
+//    public string Name
+//    {
+//        get
+//        {
+//            return Name;
+//        }
+//        set
+//        {
+//            Name = value;
+//            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(Name));
+//        }
+//    }
+
+//    public static void Main(string[] args)
+//    {
+
+//    }
+//}
+
+/* ----------------------------------------------------------------------------------------------------------- */
+
+
+//IComparable Interface
+
+/*
+ * Interface is used to define a default sort order for objects of a specific type. 
+ * This means that classes that implement this interface can be sorted and ordered in a specific way.
+ */
+
+class Program : IComparable
 {
-    public event PropertyChangedEventHandler? PropertyChanged;
+    public int exampleLength;
+    Program ex1 = new Program() { exampleLength = 2 };
 
-    public string Name
+    static void Main(String[] args)
     {
-        get
-        {
-            return Name;
-        }
-        set
-        {
-            Name = value;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(Name));
-        }
+
     }
 
-    public static void Main(string[] args)
+    public int CompareTo(object? obj)
     {
-        
+        Program ex2 = (Program)obj;
+        var num = ex1.exampleLength == ex2.exampleLength ? 0 : (ex1.exampleLength > ex2.exampleLength ? 1 : -1);
+
+        return num;
     }
 }
+
 
 /* ----------------------------------------------------------------------------------------------------------- */
