@@ -2,6 +2,7 @@
 using System.Collections;
 using System.ComponentModel;
 using System.Data.SqlTypes;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Metadata.Ecma335;
 
@@ -428,36 +429,71 @@ What is an Interface?
 
 /* ----------------------------------------------------------------------------------------------------------- */
 
-//Abstract Methods
+////Abstract Methods
+
+///*
+// * What are Abstract Methods?
+//    - can ONLY be inside an abstract class. 
+//    - don't have a method body. The method body or method implementation goes inside a child class.
+//    - cannot be marked as static or virtual. They also cannot be private.
+// */
+
+////creating and implementing an abstract methods
+
+//class Program
+//{
+//    public static void Main()
+//    {
+//        Animal dog = new Dog();
+
+//        dog.Run(20);
+//    }
+//}
+
+//abstract class Animal
+//{
+//    public abstract void Run(int speed);
+//}
+
+//class Dog : Animal
+//{
+//    public override void Run(int speed)
+//    {
+//        Console.WriteLine($"can run at a speed of {speed} KmpH");
+//    }
+//}
+
+
+/* ----------------------------------------------------------------------------------------------------------- */
+
+//Virtual Methods
 
 /*
- * What are Abstract Methods?
-    - can ONLY be inside an abstract class. 
-    - don't have a method body. The method body or method implementation goes inside a child class.
-    - cannot be marked as static or virtual. They also cannot be private.
+ * keywords virtual and override plays an important role here.
  */
-
-//creating and implementing an abstract methods
 
 class Program
 {
-    public static void Main()
+    public static void Main(string[] args)
     {
-        Animal dog = new Dog();
-
-        dog.Run(20);
+        BaseClass childClass = new ChildClass();
+        childClass.PrintMessage();
     }
 }
 
-abstract class Animal
+class BaseClass
 {
-    public abstract void Run(int speed);
+    public virtual void PrintMessage()//virtual keyword
+    {
+        Debug.WriteLine("Hello World");
+    }
 }
 
-class Dog : Animal
+class ChildClass : BaseClass
 {
-    public override void Run(int speed)
+    public override void PrintMessage() // override keyword
     {
-        Console.WriteLine($"can run at a speed of {speed} KmpH");
+        Debug.WriteLine("Goodbye World");
+        base.PrintMessage();
     }
 }
