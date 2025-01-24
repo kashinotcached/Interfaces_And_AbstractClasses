@@ -522,3 +522,36 @@ What is an Interface?
 /* ----------------------------------------------------------------------------------------------------------- */
 
 
+// Interfaces vs Abstract CLASS
+
+/*
+DIFFERENCES
+
+ * Interfaces
+    - Does not implement methods.
+    - Workaround to multiple inheritance.
+    - Do not contain constructors.
+    - Cannot contain static members.
+    - All members are public.
+    - Slow Performance.
+    - Needs to be fully implemented.
+
+ * Abstract Classes
+    - Contains both the declaration and definition.
+    - Can only have one abstact base class per child base.
+    - Contain constructors.
+    - Cannot contain static members.
+    - Can include different access modifiers.
+    - Faster Performance.
+    - Can be fully, partially, or not implemented at all.
+
+
+WHEN TO USE INTERFACE AND ABSRACT CLASS?
+ * Interfaces
+    - When many implementations only share methods. 
+
+ * Abstract Class
+    - If many implementations are of the same kind and use common behavior
+*/
+
+/* ----------------------------------------------------------------------------------------------------------- */
