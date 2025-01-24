@@ -347,29 +347,82 @@ What is an Interface?
 
 /* ----------------------------------------------------------------------------------------------------------- */
 
-//ICollection Interface
+////ICollection Interface
 
-class Program : ICollection
+//class Program : ICollection
+//{
+//    public int Count => throw new NotImplementedException(); //responsible for getting the number of elements contained in the collection.(length of the collection)
+
+//    public bool IsSynchronized => throw new NotImplementedException(); //true if access to the collection was thread safe and false other wise.
+
+//    public object SyncRoot => throw new NotImplementedException();
+
+//    static void Main(string[] args)
+//    {
+
+//    }
+
+//    public void CopyTo(Array array, int index)
+//    {
+//        throw new NotImplementedException();
+//    }
+
+//    public IEnumerator GetEnumerator()
+//    {
+//        throw new NotImplementedException();
+//    }
+//}
+
+/* ----------------------------------------------------------------------------------------------------------- */
+
+
+//Abstract Class
+
+/*
+
+ * What is an abstract class?
+    - An abstract class is a class that must be implemented in any class that derives it.
+    - We cannot instantiate an abstract class.
+    - Used so that we can have a common definition of base class that multiple other classes can subclass and share.
+
+Summary:
+    - An abstract class is a base class that has very basic requirement of what a subclass should look like.
+
+ */
+
+
+//creating an Abstract Class
+
+class Project
 {
-    public int Count => throw new NotImplementedException(); //responsible for getting the number of elements contained in the collection.(length of the collection)
-
-    public bool IsSynchronized => throw new NotImplementedException(); //true if access to the collection was thread safe and false other wise.
-
-    public object SyncRoot => throw new NotImplementedException();
-
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
+        Animal animal1 = new Cat();
+        Animal animal2 = new Dog();
 
+        animal1.MakeSound();
+        animal2.MakeSound();
     }
+}
 
-    public void CopyTo(Array array, int index)
+abstract class Animal
+{
+    public abstract void MakeSound();
+}
+
+class Dog : Animal
+{
+    public override void MakeSound()
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Bark!");
     }
+}
 
-    public IEnumerator GetEnumerator()
+class Cat : Animal
+{
+    public override void MakeSound()
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Meow!");
     }
 }
 
