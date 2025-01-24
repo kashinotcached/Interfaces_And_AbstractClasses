@@ -1,6 +1,8 @@
 ﻿
 using System.Collections;
 using System.ComponentModel;
+using System.Data.SqlTypes;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Metadata.Ecma335;
 
 namespace Interfaces_And_AbstractClasses;
@@ -199,25 +201,115 @@ What is an Interface?
 
 /* ----------------------------------------------------------------------------------------------------------- */
 
-//IEquatable Interface
+////IEquatable Interface
 
-class Program : IEquatable<Program>
-{
-    public string exampleData;
+//class Program : IEquatable<Program>
+//{
+//    public string exampleData;
 
-    static void Main(string[] args)
-    {
+//    static void Main(string[] args)
+//    {
 
-    }
+//    }
 
-    public bool Equals(Program? other)
-    {
-        if(other == null)
-            return false;
+//    public bool Equals(Program? other)
+//    {
+//        if(other == null)
+//            return false;
 
-        return Equals(exampleData.GetHashCode(), other.exampleData.GetHashCode());
-    }
-}
+//        return Equals(exampleData.GetHashCode(), other.exampleData.GetHashCode());
+//    }
+//}
 
 
 /* ----------------------------------------------------------------------------------------------------------- */
+
+////IEqualityComparer interface
+
+//public class Officer
+//{
+//    Guid id;
+
+//    public Guid Id
+//    {
+//        get { return id; }
+//        set { id = value; }
+//    }
+//}
+
+//class Program : IEqualityComparer<Officer>
+//{
+//    static void Main(string[] args)
+//    {
+
+//    }
+
+//    public bool Equals(Officer? x, Officer? y)
+//    {
+//        return x.Id == y.Id;
+//    }
+
+//    public int GetHashCode([DisallowNull] Officer obj)
+//    {
+//        return obj.Id.GetHashCode();
+//    }
+//}
+
+
+/* ----------------------------------------------------------------------------------------------------------- */
+
+//IEnumerable Interface
+
+class Wallet : IEnumerable
+{
+    Money[] bills = null;
+    int openIndex = 0;
+
+    public Wallet()
+    {
+        bills = new Money[100];
+    }
+
+    public void Add(Money bill)
+    {
+        bills[openIndex] = bill;
+        openIndex++;
+    }
+
+    public IEnumerator GetEnumerator()
+    {
+        foreach(Money bill in bills)
+        {
+            if(bill == null)
+            {
+                break;
+            }
+
+            yield return bill;
+        }
+    }
+}
+
+class Money
+{
+    public int amount;
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Wallet wallet = new Wallet();
+        wallet.Add(new Money() { amount = 1 });
+        wallet.Add(new Money() { amount = 5 });
+        wallet.Add(new Money() { amount = 10 });
+        wallet.Add(new Money() { amount = 20 });
+        wallet.Add(new Money() { amount = 50 });
+        wallet.Add(new Money() { amount = 100 });
+
+        foreach(Money money in wallet)
+        {
+            System.Diagnostics.Debug.WriteLine( $"Bills : {money.amount}");
+        }
+    }
+}
