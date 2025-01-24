@@ -317,30 +317,60 @@ What is an Interface?
 
 /* ----------------------------------------------------------------------------------------------------------- */
 
-//IEnumerator Interface
+////IEnumerator Interface
 
-class Program : IEnumerator
+//class Program : IEnumerator
+//{
+//    List<object> items = new List<object>();
+//    int current;
+
+//    public object Current => items[current];
+
+//    static void Main(string[] args)
+//    {
+
+//    }
+
+//    public bool MoveNext()
+//    {
+//        if(items.Count == 0 || items.Count <= current)
+//            return false;
+
+//        return true;
+//    }
+
+//    public void Reset()
+//    {
+//        current = 0;
+//    }
+//}
+
+/* ----------------------------------------------------------------------------------------------------------- */
+
+//ICollection Interface
+
+class Program : ICollection
 {
-    List<object> items = new List<object>();
-    int current;
+    public int Count => throw new NotImplementedException(); //responsible for getting the number of elements contained in the collection.(length of the collection)
 
-    public object Current => items[current];
+    public bool IsSynchronized => throw new NotImplementedException(); //true if access to the collection was thread safe and false other wise.
+
+    public object SyncRoot => throw new NotImplementedException();
 
     static void Main(string[] args)
     {
 
     }
 
-    public bool MoveNext()
+    public void CopyTo(Array array, int index)
     {
-        if(items.Count == 0 || items.Count <= current)
-            return false;
-
-        return true;
+        throw new NotImplementedException();
     }
 
-    public void Reset()
+    public IEnumerator GetEnumerator()
     {
-        current = 0;
+        throw new NotImplementedException();
     }
 }
+
+/* ----------------------------------------------------------------------------------------------------------- */
