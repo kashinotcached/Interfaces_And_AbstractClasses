@@ -466,34 +466,59 @@ What is an Interface?
 
 /* ----------------------------------------------------------------------------------------------------------- */
 
-//Virtual Methods
+////Virtual Methods
+
+///*
+// * keywords virtual and override plays an important role here.
+// */
+
+//class Program
+//{
+//    public static void Main(string[] args)
+//    {
+//        BaseClass childClass = new ChildClass();
+//        childClass.PrintMessage();
+//    }
+//}
+
+//class BaseClass
+//{
+//    public virtual void PrintMessage()//virtual keyword
+//    {
+//        Debug.WriteLine("Hello World");
+//    }
+//}
+
+//class ChildClass : BaseClass
+//{
+//    public override void PrintMessage() // override keyword
+//    {
+//        Debug.WriteLine("Goodbye World");
+//        base.PrintMessage();
+//    }
+//}
+
+/* ----------------------------------------------------------------------------------------------------------- */
+
+
+//Difference between Abstract and Virtual METHODS
 
 /*
- * keywords virtual and override plays an important role here.
+ 
+ * similarities
+    - Can be used inside of abstract classes
+
+ * Abstract Class
+    - Does not provide a body of code, needs to be implemented by derived class.
+    - Has to be implemented.
+
+ * Virtual Class
+    - Has Default code in the base class, child classes may or may not override it.
+    - Does NOT have to be implemented.
+    - Can live inside an abstract or non-abstract class.
+
  */
 
-class Program
-{
-    public static void Main(string[] args)
-    {
-        BaseClass childClass = new ChildClass();
-        childClass.PrintMessage();
-    }
-}
+/* ----------------------------------------------------------------------------------------------------------- */
 
-class BaseClass
-{
-    public virtual void PrintMessage()//virtual keyword
-    {
-        Debug.WriteLine("Hello World");
-    }
-}
 
-class ChildClass : BaseClass
-{
-    public override void PrintMessage() // override keyword
-    {
-        Debug.WriteLine("Goodbye World");
-        base.PrintMessage();
-    }
-}
