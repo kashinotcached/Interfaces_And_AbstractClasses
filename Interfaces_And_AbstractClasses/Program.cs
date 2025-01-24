@@ -376,54 +376,88 @@ What is an Interface?
 /* ----------------------------------------------------------------------------------------------------------- */
 
 
-//Abstract Class
+////Abstract Class
+
+///*
+
+// * What is an abstract class?
+//    - An abstract class is a class that must be implemented in any class that derives it.
+//    - We cannot instantiate an abstract class.
+//    - Used so that we can have a common definition of base class that multiple other classes can subclass and share.
+
+//Summary:
+//    - An abstract class is a base class that has very basic requirement of what a subclass should look like.
+
+// */
+
+
+////creating an Abstract Class
+
+//class Project
+//{
+//    public static void Main(string[] args)
+//    {
+//        Animal animal1 = new Cat();
+//        Animal animal2 = new Dog();
+
+//        animal1.MakeSound();
+//        animal2.MakeSound();
+//    }
+//}
+
+//abstract class Animal
+//{
+//    public abstract void MakeSound();
+//}
+
+//class Dog : Animal
+//{
+//    public override void MakeSound()
+//    {
+//        Console.WriteLine("Bark!");
+//    }
+//}
+
+//class Cat : Animal
+//{
+//    public override void MakeSound()
+//    {
+//        Console.WriteLine("Meow!");
+//    }
+//}
+
+/* ----------------------------------------------------------------------------------------------------------- */
+
+//Abstract Methods
 
 /*
-
- * What is an abstract class?
-    - An abstract class is a class that must be implemented in any class that derives it.
-    - We cannot instantiate an abstract class.
-    - Used so that we can have a common definition of base class that multiple other classes can subclass and share.
-
-Summary:
-    - An abstract class is a base class that has very basic requirement of what a subclass should look like.
-
+ * What are Abstract Methods?
+    - can ONLY be inside an abstract class. 
+    - don't have a method body. The method body or method implementation goes inside a child class.
+    - cannot be marked as static or virtual. They also cannot be private.
  */
 
+//creating and implementing an abstract methods
 
-//creating an Abstract Class
-
-class Project
+class Program
 {
-    public static void Main(string[] args)
+    public static void Main()
     {
-        Animal animal1 = new Cat();
-        Animal animal2 = new Dog();
+        Animal dog = new Dog();
 
-        animal1.MakeSound();
-        animal2.MakeSound();
+        dog.Run(20);
     }
 }
 
 abstract class Animal
 {
-    public abstract void MakeSound();
+    public abstract void Run(int speed);
 }
 
 class Dog : Animal
 {
-    public override void MakeSound()
+    public override void Run(int speed)
     {
-        Console.WriteLine("Bark!");
+        Console.WriteLine($"can run at a speed of {speed} KmpH");
     }
 }
-
-class Cat : Animal
-{
-    public override void MakeSound()
-    {
-        Console.WriteLine("Meow!");
-    }
-}
-
-/* ----------------------------------------------------------------------------------------------------------- */
